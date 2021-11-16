@@ -15,7 +15,7 @@ import zakadabar.lib.accounts.browser.roles.Roles
 import zakadabar.lib.accounts.data.LogoutAction
 import zakadabar.lib.i18n.browser.LocaleCrud
 import zakadabar.lib.i18n.browser.TranslationCrud
-import remenyo.szamologep.frontend.browser.pages.ExampleEntityCrud
+import remenyo.szamologep.frontend.browser.pages.EgyenletEntityCrud
 import remenyo.szamologep.resources.strings
 
 class SideBar : ZkSideBar() {
@@ -28,7 +28,7 @@ class SideBar : ZkSideBar() {
         }
 
         ifNotAnonymous {
-            + item<ExampleEntityCrud>()
+            + item<EgyenletEntityCrud>()
         }
 
         withRole(appRoles.securityOfficer) {

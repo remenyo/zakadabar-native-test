@@ -5,7 +5,7 @@
 package remenyo.szamologep.frontend.browser
 
 import zakadabar.core.browser.application.ZkAppRouting
-import remenyo.szamologep.frontend.browser.pages.ExampleEntityCrud
+import remenyo.szamologep.frontend.browser.pages.EgyenletEntityCrud
 import remenyo.szamologep.frontend.browser.pages.Home
 
 class Routing : ZkAppRouting(DefaultLayout, Home) {
@@ -14,7 +14,7 @@ class Routing : ZkAppRouting(DefaultLayout, Home) {
         zakadabar.lib.accounts.browser.install(this)
         zakadabar.lib.i18n.browser.install(this)
         + Home
-        + ExampleEntityCrud()
+        + EgyenletEntityCrud()
    }
 
 }

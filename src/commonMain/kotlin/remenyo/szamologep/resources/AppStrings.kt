@@ -16,7 +16,7 @@ internal var strings = AppStrings()
 
 class AppStrings : ZkBuiltinStrings() {
     override val applicationName by "Számológép"
-    val exampleEntityCrud by "Example Entities"
+    val EgyenletEntityCrud by "Egyenletek"
 
     // these will most likely change a bit with the first release of July 2021
 

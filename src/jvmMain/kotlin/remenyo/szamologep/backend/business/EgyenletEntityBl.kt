@@ -5,20 +5,20 @@ package remenyo.szamologep.backend.business
 
 import zakadabar.core.authorize.BusinessLogicAuthorizer
 import zakadabar.core.business.EntityBusinessLogicBase
-import remenyo.szamologep.backend.persistence.ExampleEntityPa
-import remenyo.szamologep.data.ExampleEntityBo
+import remenyo.szamologep.backend.persistence.EgyenletEntityPa
+import remenyo.szamologep.data.EgyenletEntityBo
 
 /**
  * Business Logic for ExampleEntityBo.
  *
  * Generated with Bender at 2021-06-01T09:28:42.142Z.
  */
-open class ExampleEntityBl : EntityBusinessLogicBase<ExampleEntityBo>(
-    boClass = ExampleEntityBo::class
+open class EgyenletEntityBl : EntityBusinessLogicBase<EgyenletEntityBo>(
+    boClass = EgyenletEntityBo::class
 ) {
 
-    override val pa = ExampleEntityPa()
+    override val pa = EgyenletEntityPa()
 
-    override val authorizer: BusinessLogicAuthorizer<ExampleEntityBo> by provider()
+    override val authorizer: BusinessLogicAuthorizer<EgyenletEntityBo> by provider()
 
 }

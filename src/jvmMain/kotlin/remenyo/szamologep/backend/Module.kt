@@ -9,7 +9,7 @@ import zakadabar.core.authorize.SimpleRoleAuthorizerProvider
 import zakadabar.core.route.RoutedModule
 import zakadabar.core.server.server
 import zakadabar.core.util.PublicApi
-import remenyo.szamologep.backend.business.ExampleEntityBl
+import remenyo.szamologep.backend.business.EgyenletEntityBl
 
 @PublicApi
 object Module : RoutedModule {
@@ -19,11 +19,12 @@ object Module : RoutedModule {
         zakadabar.lib.i18n.install()
 
         server += SimpleRoleAuthorizerProvider {
-            all = MyRoles.siteMember
-            read = MyRoles.myRole
+            all = PUBLIC
+            // all = MyRoles.siteMember
+            // read = MyRoles.myRole
         }
 
-        server += ExampleEntityBl()
+        server += EgyenletEntityBl()
     }
 
 }

@@ -4,6 +4,7 @@
 package remenyo.szamologep.data
 
 import kotlinx.serialization.Serializable
+import remenyo.szamologep.MathActions
 import zakadabar.core.data.EntityBo
 import zakadabar.core.data.EntityBoCompanion
 import zakadabar.core.data.EntityId
@@ -20,21 +21,27 @@ import zakadabar.core.schema.BoSchema
  * the backend.
  */
 @Serializable
-class ExampleEntityBo(
+class EgyenletEntityBo(
 
-    override var id: EntityId<ExampleEntityBo>,
-    var name: String
+    override var id: EntityId<EgyenletEntityBo>,
+    var a: Double,
+    var b: Double,
+    var method : MathActions
 
-) : EntityBo<ExampleEntityBo> {
+) : EntityBo<EgyenletEntityBo> {
 
-    companion object : EntityBoCompanion<ExampleEntityBo>("example-entity")
+    companion object : EntityBoCompanion<EgyenletEntityBo>("example-entity")
 
     override fun getBoNamespace() = boNamespace
     override fun comm() = comm
 
     override fun schema() = BoSchema {
         + ::id
-        + ::name min 1 max 100
+        + ::a
+        + ::b
+        + ::method
     }
+
+
 
 }
