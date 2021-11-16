@@ -2,17 +2,17 @@ serverName: Zakadabar Demo
 defaultLocale: en
 
 database:
-  driverClassName: @sqlDriver@
-  jdbcUrl: @sqlUrl@
-  username: @sqlUser@
-  password: @sqlPassword@
+  driverClassName: org.h2.Driver
+  jdbcUrl: jdbc:h2:./app/var/szamologep
+  username: local
+  password: 697ef061-b22a-4ea2-963f-3e39a1d1b008
   debugSql: false
 
 traceRouting: false
 staticResources: ./var/static
 
 modules:
-  - @packageName@.backend.Module
+  - remenyo.szamologep.backend.Module
 
 #ktor:
 #  port: 8080

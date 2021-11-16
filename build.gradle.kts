@@ -1,11 +1,15 @@
 /*
- * @copyright@
+ * Copyright © 2020-2021, Simplexion, Hungary and contributors. Use of this source code is governed by the Apache 2.0 license.
  */
 
 import zakadabar.gradle.isPublishing
 import zakadabar.gradle.manifestAndDokka
 import zakadabar.gradle.config
 import java.util.*
+
+rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin::class.java) {
+    rootProject.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension>().versions.webpackCli.version = "4.9.0"
+}
 
 plugins {
     kotlin("multiplatform") version "1.5.30"
@@ -25,59 +29,8 @@ plugins {
     id("zk-build-tasks") apply false
 }
 
-// ---- ZK-CUSTOMIZE-START -----------------------------------------------------
-
-//    ↓ ↓ ↓ ↓   READ COMMENTS  ↓ ↓ ↓ ↓
-
-// -----------------------------------------------------------------------------
-// You don't have to modify anything above this
-// -----------------------------------------------------------------------------
-
-group = "my.application.group"
-version = "2021.9.28"
-
-tasks.register<zakadabar.gradle.CustomizeTask>("zkCustomize") {
-
-    packageName = "my.pkg.name" // the package your code resides in
-
-    projectPath = "" // "spxbhuhb/zakadabar-application-template"
-    projectUrl = "" // "https://github.com/$projectPath"
-
-    license = "" // "Apache 2.0"
-    licenseUrl = "" // "https://www.apache.org/licenses/LICENSE-2.0.txt"
-
-    organizationName = "" // "Simplexion Kft."
-
-    copyright = "Copyright © 2020-2021, Simplexion, Hungary and contributors. Use of this source code is governed by the Apache 2.0 license."
-
-    // the title of your application, this is the title of the web pace
-    // also, if you publish to maven this is the description of your package
-
-    applicationTitle = "My Application"
-
-    defaultLocale = "en"
-
-    sqlDriver = "org.h2.Driver"
-    sqlDatabase = project.name
-    sqlUrl = "jdbc:h2:./app/var/$sqlDatabase"
-    sqlUser = "local"
-    sqlPassword = UUID.randomUUID().toString()
-
-    dockerImageName = project.name
-
-    dockerSqlDriver = "org.postgresql.Driver"
-    dockerSqlDatabase = project.name
-    dockerSqlUrl = "jdbc:postgresql://localhost/$sqlDatabase"
-    dockerSqlUser = "postgres"
-    dockerSqlPassword = sqlPassword
-
-}
-
-// -----------------------------------------------------------------------------
-// You don't have to modify anything below this
-// -----------------------------------------------------------------------------
-
-// ---- ZK-CUSTOMIZE-END -------------------------------------------------------
+group = "remenyo.szamologep.teszt"
+version = "2021.11.16"
 
 val isSnapshot = version.toString().contains("SNAPSHOT")
 
@@ -175,7 +128,7 @@ if (project.isPublishing) {
         config(project)
 
         publications.withType<MavenPublication>().all {
-            config(tasks["javadocJar"], "@applicationTitle@")
+            config(tasks["javadocJar"], "Számológép")
         }
     }
 

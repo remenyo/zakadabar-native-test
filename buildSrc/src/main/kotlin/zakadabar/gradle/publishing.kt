@@ -25,7 +25,7 @@ fun manifestAndDokka(tasks: TaskContainer): Task {
             attributes += sortedMapOf(
                 "Built-By" to System.getProperty("user.name"),
                 "Build-Jdk" to System.getProperty("java.version"),
-                "Implementation-Vendor" to "@organizationName@",
+                "Implementation-Vendor" to "Simplexion Kft.",
                 "Implementation-Version" to archiveVersion.get(),
                 "Created-By" to org.gradle.util.GradleVersion.current()
             )
@@ -90,12 +90,12 @@ fun PublishingExtension.config(project: Project) {
 
 fun MavenPublication.config(source: Any, pomName: String) {
 
-    val path = "@projectPath@"
+    val path = "remenyo/zakadabar-native-test"
 
     artifact(source)
 
     pom {
-        description.set("@applicationTitle@")
+        description.set("Számológép")
         name.set(pomName)
         url.set("https://github.com/$path")
         scm {
@@ -105,8 +105,8 @@ fun MavenPublication.config(source: Any, pomName: String) {
         }
         licenses {
             license {
-                name.set("@license@")
-                url.set("@licenseUrl@")
+                name.set("Apache 2.0")
+                url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
                 distribution.set("repo")
             }
         }
